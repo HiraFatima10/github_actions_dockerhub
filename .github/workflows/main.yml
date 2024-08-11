@@ -21,9 +21,9 @@ jobs:
             username: ${{ secrets.DOCKERHUB_USER }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: hirafatima10/express:latest
+      - name: Build Docker Image
+        run: docker build -t hirafatima10/express:auto .
+
+      - name: Push Docker Image
+        run: docker push hirafatima10/express:auto
 
